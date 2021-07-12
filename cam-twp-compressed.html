@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body style="margin: 0px; overflow: hidden">
+    <div class="icon-container on-top">
+      <img src="icons/knog-logo.svg" />
+    </div>
+    <div
+      class="
+        position-absolute
+        font-2em
+        bottom
+        right
+        w-100
+        text-center
+        on-top
+        d-none
+      "
+      id="product-button"
+    >
+      <a href="https://www.knog.com/" class="w-100">
+        <button
+          type="button"
+          class="
+            btn btn-primary btn-lg
+            w-100
+            border-radius-0
+            knog-red
+            bg-knog-header-grey
+            text-bold
+            no-border
+          "
+        >
+          <img src="icons/cube.svg" class="height-40" />
+          View Product Details
+        </button></a
+      >
+    </div>
+    <a-scene
+      artoolkit
+      gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/v1/decoders/;"
+      embedded
+      arjs="sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+      renderer="precision: medium; colorManagement: true; logarithmicDepthBuffer: true;"
+      loading-screen="dotsColor: white; backgroundColor: black"
+      shadow="autoUpdate: false; enabled: false;"
+    >
+      <a-assets response-type="“arraybuffer”" timeout="999999">
+        <a-asset-item
+          response-type="arraybuffer"
+          id="model"
+          src="models/Twinpack-test-a-texture-compressed.glb"
+        ></a-asset-item>
+      </a-assets>
+      <a-marker type="barcode" value="2" smooth="true" smooth="15">
+        <!-- <a-entity light="type: ambient; intensity: 0.5;"></a-entity>
+        <a-entity
+          light="type: directional;
+                   castShadow: true;
+                   intensity: 0.4;
+                   shadowCameraVisible: true;"
+          position="-5 3 1.5"
+        ></a-entity> -->
+        <!-- <a-entity
+          light="type: hemisphere; color: #33C; groundColor: #3C3; intensity: 100"
+        ></a-entity> -->
+        <a-entity
+          id="model"
+          gltf-model="#model"
+          loop="infinite"
+          scale="0.05 0.05 0.05"
+          shadow="cast: true"
+          position="0 2 0"
+          animation="property: rotation; from: 90 0 180; to: 90 359 180; dur: 12000; loop:true; easing:linear;"
+          animation-mixer
+        >
+        </a-entity>
+      </a-marker>
+
+      <a-marker type="barcode" value="6">
+        <a-entity
+          id="model"
+          gltf-model="#model"
+          loop="infinite"
+          scale="0.05 0.05 0.05"
+          position="0 2 0"
+          animation="property: rotation; from: 270 0 0; to: 270 359 0; dur: 12000; loop:true; easing:linear;"
+          animation-mixer
+        >
+        </a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+
+    <div class="modal on-top" tabindex="-1" role="dialog" id="modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="header">Welcome to Knog AR</div>
+          <div class="content">
+            Please point your camera at the following marker on the product in
+            front of you.
+          </div>
+          <img class="marker" src="icons/marker.svg" />
+          <div class="footer">
+            <button
+              type="button"
+              class="
+                btn btn-primary
+                dismiss
+                w-100
+                border-radius-0
+                knog-white
+                bg-knog-red
+                text-bold
+                no-border
+                text-title
+              "
+              data-dismiss="modal"
+            >
+              Press Here
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#modal").show();
+        var elements = document.getElementsByClassName("dismiss");
+        Array.from(elements).forEach(function (element) {
+          element.addEventListener("click", toggleModal);
+        });
+      });
+      var toggleModal = function () {
+        $("#modal").toggle();
+        $("#product-button").addClass("d-block");
+      };
+    </script>
+  </body>
+</html>

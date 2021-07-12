@@ -1,0 +1,205 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.o-hidden {
+  overflow: hidden;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.top-10px {
+  top: 10px;
+}
+
+.bottom-10px {
+  bottom: 10px;
+}
+.bottom {
+  bottom: 0;
+}
+.right {
+  right: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-2em {
+  font-size: 2em;
+}
+
+.on-top {
+  z-index: 1;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-relative {
+  position: relative;
+}
+
+html,
+body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+#arjsDebugUIContainer {
+  display: none;
+}
+
+.a-enter-vr {
+  display: none;
+}
+
+.center-div {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.d-none {
+  display: none;
+}
+
+.text-red {
+  color: red;
+}
+
+.text-green {
+  color: green;
+}
+
+.spinner-grow {
+  height: 5em !important;
+  width: 5em !important;
+}
+
+.size-none {
+  height: 0;
+  width: 0;
+  z-index: 0;
+}
+
+.border-radius-0 {
+  border-radius: 0 !important;
+}
+
+.knog-red {
+  color: #ef3e39 !important;
+}
+
+.bg-knog-red {
+  background-color: #ef3e39 !important;
+}
+
+.border-knog-red {
+  border-color: #ef3e39 !important;
+}
+
+.knog-header-grey {
+  color: #ccccca !important;
+}
+
+.bg-knog-header-grey {
+  background-color: #ccccca !important;
+}
+
+.text-bold {
+  font-weight: bold !important;
+}
+
+.knog-grey {
+  color: #dcdbd7;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.no-border {
+  border-color: transparent !important;
+}
+
+.height-40 {
+  height: 40px;
+}
+
+.icon-container {
+  position: absolute;
+  float: center;
+  top: 0;
+  margin-left: -50px;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.icon-container img {
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  background-color: #ccccca;
+  color: #333333;
+  font-weight: bold;
+  font-size: 1.25em;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dcdbd7;
+  font-weight: 500;
+  color: #404040;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.marker {
+  width: 100%;
+}
+
+.d-block {
+  display: block;
+}
+
+.modal-dialog {
+  margin-top: 100px !important;
+}
+
+.text-title {
+  font-size: 1.25em !important;
+}
+#product-button button {
+  padding: 0 !important;
+}
+@media (max-width: 576px) {
+  .modal-dialog {
+    margin-left: 3em !important;
+    margin-right: 3em !important;
+  }
+}
